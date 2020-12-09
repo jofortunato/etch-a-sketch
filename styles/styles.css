@@ -1,0 +1,23 @@
+:root {
+  --matrix-green: #00ff41;
+}
+
+html {
+  min-height: 100%;
+  background-image: url(/images/tincho-franco-kmafxTVsfG8-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+h1,
+p,
+button,
+span {
+  font-family: "Roboto Mono", monospace;
+  color: var(--matrix-green);
+}
+
+h1 {
+  font-size: 46px;
+}
