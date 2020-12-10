@@ -45,21 +45,35 @@ h1 {
   margin: 10px 0;
 }
 
-.color-options-btn {
+.btn-wrapper {
   flex: 1 1 auto;
   margin: 5px;
+  padding: 2px;
+  background-color: var(--matrix-green);
+  background-image: linear-gradient(
+    315deg,
+    rgba(2, 0, 36, 1) 0%,
+    var(--matrix-green)
+  );
+}
+
+.color-options-btn {
+  width: 100%;
   padding: 10px;
   font-size: 16px;
   font-weight: bold;
   background-color: black;
-  border-width: 2px;
-  border-image-source: linear-gradient(
-    315deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(0, 255, 65, 1) 100%
-  );
+  border: none;
+}
 
-  border-image-slice: 30%;
+.btn-wrapper:hover,
+.btn-wrapper:focus {
+  background-image: none;
+}
+
+.color-options-btn:hover,
+.color-options-btn:focus {
+  outline: none;
 }
 
 #sketchpad {
