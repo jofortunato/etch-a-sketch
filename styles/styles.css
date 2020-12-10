@@ -1,5 +1,8 @@
 :root {
   --matrix-green: #00ff41;
+  --content-max-width: 500px;
+  --content-width: 75vw;
+  --scketchpad-border: min(15px, 2vw);
 }
 
 html {
@@ -20,4 +23,49 @@ span {
 
 h1 {
   font-size: 46px;
+}
+
+#main-container {
+  width: calc(var(--content-width) + 2 * var(--scketchpad-border));
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+#page-title {
+  text-align: center;
+  margin: 5%;
+}
+
+.options-containers {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.color-options-btn {
+  flex: 1 1 auto;
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: black;
+  border-width: 2px;
+  border-image-source: linear-gradient(
+    315deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 255, 65, 1) 100%
+  );
+
+  border-image-slice: 30%;
+}
+
+#sketchpad {
+  width: var(--content-width);
+  height: var(--content-width);
+  max-width: calc(var(--content-max-width) - 30px);
+  max-height: calc(var(--content-max-width) - 30px);
+  margin: 0 auto;
+  border: var(--scketchpad-border) solid var(--matrix-green);
 }

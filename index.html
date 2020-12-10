@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet"  href="./styles/reset.css" media="all"/>
-    <link rel="stylesheet"  href="./styles/styles.css" media="all"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/reset.css" media="all" />
+    <link rel="stylesheet" href="./styles/styles.css" media="all" />
     <title>Etch-A-Sketch</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="main-container">
-        <h1 id="page-title">Etch-a-Sketch</h1>
-        <div id="color-buttons-container" class="options-containers">
-            <button class="color-options" id="white-color"></button>
-            <button class="color-options" id="rainbow-color"></button>
-            <button class="color-options" id="gray-scale-color"></button>
-            <button class="color-options" id="eraser"></button>
-            <button class="color-options" id="color-picker"></button>
-        </div>
-        <div id="sketchpad"></div>
-        <div id="grid-containder" class="options-containders">
-            <button class="color-options" id="clear"></button>
-            <input type="range" min="4" max="100" value="50" class="slider" id="grid-width-slider">
-        </>
+      <h1 id="page-title">Etch-a-Sketch</h1>
+      <div id="color-buttons-container" class="options-containers">
+        <button class="color-options-btn" id="green-color">Green</button>
+        <button class="color-options-btn" id="rainbow-color">Rainbow</button>
+        <button class="color-options-btn" id="gray-scale-color">
+          Gray Scale
+        </button>
+        <button class="color-options-btn" id="eraser">Eraser</button>
+        <button class="color-options-btn" id="color-picker">Pick:</button>
+      </div>
+      <div id="sketchpad"></div>
+      <div id="grid-containder" class="options-containers">
+        <button class="color-options-btn" id="clear">Clear</button>
+        <input
+          type="range"
+          min="4"
+          max="100"
+          value="50"
+          class="slider"
+          id="grid-width-slider"
+        />
+      </div>
     </div>
-    
-</body>
+  </body>
 </html>
