@@ -1,14 +1,25 @@
 const sketchpadContainer = document.querySelector("#sketchpad");
 const gridWidthSlider = document.querySelector("#grid-width-slider");
-const testSlider = document.querySelector(".test-slider");
 const gridElements = sketchpadContainer.getElementsByTagName("div");
-let gridWidth = Math.sqrt(gridElements.length);
 
+const testSlider = document.querySelector(".test-slider");
 testSlider.innerHTML = gridWidthSlider.value;
 
+let gridWidth = Math.sqrt(gridElements.length);
 buildGrid();
 
+let color = "white";
+
 gridWidthSlider.addEventListener("input", buildGrid, false);
+
+function addEventListenerToCells() {
+    for(i = 0; i < gridElements.length; ++i) {
+        gridElements[i].addEventListener("mouseover", event => {
+            console.log("here");
+            event.target.style["background-color"] = "white";
+        }, false);
+    };
+}
 
 function buildGrid() {
     testSlider.innerHTML = gridWidthSlider.value;
@@ -37,4 +48,6 @@ function buildGrid() {
 
     sketchpadContainer.style["grid-template-columns"] = `repeat(${gridWidth}, 1fr)`;
     sketchpadContainer.style["grid-template-rows"] = `repeat(${gridWidth}, 1fr)`;
+
+    addEventListenerToCells()
 }
