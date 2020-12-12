@@ -8,8 +8,8 @@ This part of the [The Odin Project](https://www.theodinproject.com/) foundations
 
 ## Development
 
-- [ ] UI development;
-- [ ] Build variable size sketch grid with Javascript;
+- [x] UI development;
+- [x] Build variable size sketch grid with Javascript;
 - [ ] Painting with a single color feature;
 - [ ] Clear all sketch feature;
 - [ ] Color picker feature;
