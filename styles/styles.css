@@ -121,6 +121,11 @@ h1 {
   margin: 0 auto;
   border: var(--scketchpad-border) solid var(--matrix-green);
   background-color: black;
+  display: grid;
+}
+
+#sketchpad div {
+  border: 1px solid rgba(155, 155, 155, 0.5);
 }
 
 #grid-width-slider {
