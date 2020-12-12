@@ -9,16 +9,25 @@ testSlider.innerHTML = gridWidthSlider.value;
 let gridWidth = Math.sqrt(gridElements.length);
 buildGrid();
 
-let color = "white";
+let colorOption = "white";
+let isActive = false;
 
 gridWidthSlider.addEventListener("input", buildGrid, false);
 
 function addEventListenerToCells() {
     for(i = 0; i < gridElements.length; ++i) {
         gridElements[i].addEventListener("mouseover", event => {
-            event.target.style["background-color"] = color;
+            if (isActive === true) {
+                event.target.style["background-color"] = colorOption;
+            }
         }, false);
     };
+}
+
+function addEventListenerToContainer() {
+    sketchpadContainer.addEventListener("click", () => {
+        isActive = !isActive;
+    }, false);
 }
 
 clearBtn.addEventListener("click", clearColor, false);
@@ -52,7 +61,8 @@ function buildGrid() {
     sketchpadContainer.style["grid-template-rows"] = `repeat(${gridWidth}, 1fr)`;
 
     clearColor();
-    addEventListenerToCells()
+    addEventListenerToContainer();
+    addEventListenerToCells();
 }
 
 function clearColor () {
