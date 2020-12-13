@@ -3,16 +3,15 @@ const gridWidthSlider = document.querySelector("#grid-width-slider");
 const gridElements = sketchpadContainer.getElementsByTagName("div");
 const clearBtn = document.querySelector("#clear");
 
-const testSlider = document.querySelector(".test-slider");
-testSlider.innerHTML = gridWidthSlider.value;
-
-let gridWidth = Math.sqrt(gridElements.length);
-buildGrid();
-
 let colorOption = "white";
 let isActive = false;
+buildGrid();
 
 gridWidthSlider.addEventListener("input", buildGrid, false);
+sketchpadContainer.addEventListener("click", () => {
+    isActive = !isActive;
+}, false);
+clearBtn.addEventListener("click", clearColor, false);
 
 function addEventListenerToCells() {
     for(i = 0; i < gridElements.length; ++i) {
@@ -24,49 +23,33 @@ function addEventListenerToCells() {
     };
 }
 
-function addEventListenerToContainer() {
-    sketchpadContainer.addEventListener("click", () => {
-        isActive = !isActive;
-    }, false);
-}
-
-clearBtn.addEventListener("click", clearColor, false);
-
 function buildGrid() {
-    testSlider.innerHTML = gridWidthSlider.value;
+    isActive = false;
 
-    let sketchpadWidthSliderValue = parseInt(gridWidthSlider.value);
+    let widthSliderValue = parseInt(gridWidthSlider.value);
+    let oldSketchPadCells = sketchpadContainer.querySelectorAll("div");
+    
+    oldSketchPadCells.forEach( cell => cell.remove());
 
-    if (sketchpadWidthSliderValue > gridWidth) {
-        numberCellsToCreate = sketchpadWidthSliderValue**2 - gridWidth**2;
+    numberCellsToCreate = widthSliderValue**2;
 
-        for (let i = 0; i < numberCellsToCreate; ++i) {
-
-            let sketchpadCell = document.createElement("div");
-            sketchpadContainer.appendChild(sketchpadCell);
-        }
-        gridWidth = Math.sqrt(gridElements.length);
-    }
-    else if (sketchpadWidthSliderValue < gridWidth) {
-        numberCellsToDelete = gridWidth**2 - sketchpadWidthSliderValue**2;
-        for (let i = 0; i < numberCellsToDelete; ++i) {
-
-            let sketchpadCell = sketchpadContainer.querySelector("div");
-            sketchpadCell.remove();
-        }
-        gridWidth = Math.sqrt(gridElements.length);
+    for (i = 0; i < numberCellsToCreate; ++i) {
+        let newSketchPadCell = document.createElement("div");
+        sketchpadContainer.appendChild(newSketchPadCell);
     }
 
-    sketchpadContainer.style["grid-template-columns"] = `repeat(${gridWidth}, 1fr)`;
-    sketchpadContainer.style["grid-template-rows"] = `repeat(${gridWidth}, 1fr)`;
-
-    clearColor();
-    addEventListenerToContainer();
+    styleGrid(widthSliderValue);
     addEventListenerToCells();
 }
 
 function clearColor () {
+    isActive = false;
     for(i = 0; i < gridElements.length; ++i) {
         gridElements[i].style.removeProperty("background-color");
     }
+}
+
+function styleGrid(widthSliderValue) {
+    sketchpadContainer.style["grid-template-columns"] = `repeat(${widthSliderValue}, 1fr)`;
+    sketchpadContainer.style["grid-template-rows"] = `repeat(${widthSliderValue}, 1fr)`;
 }
