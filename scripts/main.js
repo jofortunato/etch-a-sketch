@@ -4,10 +4,12 @@ const gridElements = sketchpadContainer.getElementsByTagName("div");
 const clearBtn = document.querySelector("#clear");
 const whiteBtn = document.querySelector("#white-color");
 const rainbowBtn = document.querySelector("#rainbow-color");
+const grayScaleBtn = document.querySelector("#gray-scale-color");
 const eraserBtn = document.querySelector("#eraser");
 const colorPicker = document.querySelector("#color-picker");
 
-let colorOption = "white";
+/* Default white color */
+let colorOption = "rgb(255,255,255)";
 let isActive = false;
 buildGrid();
 
@@ -18,11 +20,15 @@ sketchpadContainer.addEventListener("click", () => {
 clearBtn.addEventListener("click", clearColor, false);
 whiteBtn.addEventListener("click", () => {
     isActive = false;
-    colorOption = "white";
+    colorOption = "rgb(255,255,255)";
 }, false);
 rainbowBtn.addEventListener("click", () => {
     isActive = false;
     colorOption = "rainbow";
+}, false);
+grayScaleBtn.addEventListener("click", () => {
+    isActive = false;
+    colorOption = "gray-scale";
 }, false);
 eraserBtn.addEventListener("click", () => {
     isActive = false;
@@ -40,6 +46,10 @@ function addEventListenerToCells() {
                 if (colorOption === "rainbow") {
                     randomColor = getRandomColor();
                     event.target.style["background-color"] = randomColor;
+                }
+                else if (colorOption === "gray-scale") {
+                    darkerColor = getDarkerColor(event);
+                    event.target.style["background-color"] = darkerColor;
                 }
                 else if (colorOption === "eraser") {
                     event.target.style.removeProperty("background-color");
@@ -91,4 +101,26 @@ function getRandomColor () {
     blue = Math.floor(Math.random()*255);
 
     return `rgb(${red},${green},${blue})`
+}
+
+function getDarkerColor (event) {
+    let cellToDarken = event.target;
+    let currentCellColor = cellToDarken.style["background-color"];
+
+    rgbString = currentCellColor ? currentCellColor.slice(4,-1) : "0,0,0";
+    rgbArray = rgbString.split(",");
+
+    
+    let darkenSteps = cellToDarken.getAttribute("data-darken-steps") ? parseInt(cellToDarken.getAttribute("data-darken-steps")) : 0;
+
+    let newRed, newGreen, neewBlue;
+
+    newRed = rgbArray[0] - parseInt(rgbArray[0])/(10-darkenSteps);
+    newGreen = rgbArray[1] - parseInt(rgbArray[1])/(10-darkenSteps);
+    neewBlue = rgbArray[2] - parseInt(rgbArray[2])/(10-darkenSteps);
+
+    cellToDarken.setAttribute("data-darken-steps", `${darkenSteps+1}`);
+
+    return `rgb(${newRed},${newGreen},${neewBlue})`
+
 }
