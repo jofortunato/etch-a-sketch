@@ -15,7 +15,7 @@ This part of the [The Odin Project](https://www.theodinproject.com/) foundations
 - [x] Color picker feature;
 - [x] Eraser feature;
 - [ ] Variable gray scale painting feature;
-- [ ] Rainbow painting feature;
+- [x] Rainbow painting feature;
 
 ## Bugs, Advices and Lessons Learned
 

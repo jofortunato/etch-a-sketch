@@ -3,6 +3,7 @@ const gridWidthSlider = document.querySelector("#grid-width-slider");
 const gridElements = sketchpadContainer.getElementsByTagName("div");
 const clearBtn = document.querySelector("#clear");
 const whiteBtn = document.querySelector("#white-color");
+const rainbowBtn = document.querySelector("#rainbow-color");
 const eraserBtn = document.querySelector("#eraser");
 const colorPicker = document.querySelector("#color-picker");
 
@@ -19,6 +20,10 @@ whiteBtn.addEventListener("click", () => {
     isActive = false;
     colorOption = "white";
 }, false);
+rainbowBtn.addEventListener("click", () => {
+    isActive = false;
+    colorOption = "rainbow";
+}, false);
 eraserBtn.addEventListener("click", () => {
     isActive = false;
     colorOption = "eraser";
@@ -32,7 +37,11 @@ function addEventListenerToCells() {
     for(i = 0; i < gridElements.length; ++i) {
         gridElements[i].addEventListener("mouseover", event => {
             if (isActive === true) {
-                if (colorOption === "eraser") {
+                if (colorOption === "rainbow") {
+                    randomColor = getRandomColor();
+                    event.target.style["background-color"] = randomColor;
+                }
+                else if (colorOption === "eraser") {
                     event.target.style.removeProperty("background-color");
                 }
                 else {
@@ -72,4 +81,14 @@ function clearColor () {
 function styleGrid(widthSliderValue) {
     sketchpadContainer.style["grid-template-columns"] = `repeat(${widthSliderValue}, 1fr)`;
     sketchpadContainer.style["grid-template-rows"] = `repeat(${widthSliderValue}, 1fr)`;
+}
+
+function getRandomColor () {
+    let red, green, blue;
+    
+    red = Math.floor(Math.random()*255);
+    green = Math.floor(Math.random()*255);
+    blue = Math.floor(Math.random()*255);
+
+    return `rgb(${red},${green},${blue})`
 }
