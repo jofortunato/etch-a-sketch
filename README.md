@@ -14,8 +14,9 @@ This part of the [The Odin Project](https://www.theodinproject.com/) foundations
 - [x] Clear all sketch feature;
 - [x] Color picker feature;
 - [x] Eraser feature;
-- [ ] Variable gray scale painting feature;
+- [x] Variable gray scale painting feature;
 - [x] Rainbow painting feature;
+- [ ] Create a new, and more modern, UI.
 
 ## Bugs, Advices and Lessons Learned
 
