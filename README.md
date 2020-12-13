@@ -10,11 +10,12 @@ This part of the [The Odin Project](https://www.theodinproject.com/) foundations
 
 - [x] UI development;
 - [x] Build variable size sketch grid with Javascript;
-- [ ] Painting with a single color feature;
-- [ ] Clear all sketch feature;
-- [ ] Color picker feature;
-- [ ] Eraser feature;
+- [x] Painting with a single color feature;
+- [x] Clear all sketch feature;
+- [x] Color picker feature;
+- [x] Eraser feature;
 - [ ] Variable gray scale painting feature;
+- [ ] Rainbow painting feature;
 
 ## Bugs, Advices and Lessons Learned
 
