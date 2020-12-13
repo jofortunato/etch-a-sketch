@@ -2,6 +2,9 @@ const sketchpadContainer = document.querySelector("#sketchpad");
 const gridWidthSlider = document.querySelector("#grid-width-slider");
 const gridElements = sketchpadContainer.getElementsByTagName("div");
 const clearBtn = document.querySelector("#clear");
+const whiteBtn = document.querySelector("#white-color");
+const eraserBtn = document.querySelector("#eraser");
+const colorPicker = document.querySelector("#color-picker");
 
 let colorOption = "white";
 let isActive = false;
@@ -12,12 +15,29 @@ sketchpadContainer.addEventListener("click", () => {
     isActive = !isActive;
 }, false);
 clearBtn.addEventListener("click", clearColor, false);
+whiteBtn.addEventListener("click", () => {
+    isActive = false;
+    colorOption = "white";
+}, false);
+eraserBtn.addEventListener("click", () => {
+    isActive = false;
+    colorOption = "eraser";
+}, false);
+colorPicker.addEventListener("change", () => {
+    isActive = false;
+    colorOption = colorPicker.value;
+}, false);
 
 function addEventListenerToCells() {
     for(i = 0; i < gridElements.length; ++i) {
         gridElements[i].addEventListener("mouseover", event => {
             if (isActive === true) {
-                event.target.style["background-color"] = colorOption;
+                if (colorOption === "eraser") {
+                    event.target.style.removeProperty("background-color");
+                }
+                else {
+                    event.target.style["background-color"] = colorOption;
+                }
             }
         }, false);
     };
