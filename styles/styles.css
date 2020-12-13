@@ -7,6 +7,7 @@
 
 html {
   min-height: 100%;
+  background-color: black;
   background-image: url(/images/isaac-quesada-aCxaV6Psbi8-unsplash.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -124,9 +125,10 @@ h1 {
   display: grid;
 }
 
+/*
 #sketchpad div {
   border: 1px solid rgba(155, 155, 155, 0.5);
-}
+}*/
 
 #grid-width-slider {
   -webkit-appearance: none;
