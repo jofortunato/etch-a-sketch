@@ -1,6 +1,7 @@
 # Etch-A-Sketch
 
-A matrix influenced Etch-A-Sketch app.
+Updade: Created a new and lighter UI.
+If you want to use the matrix style UI, just change the html style tag line to ./styles/matrix-style.css
 
 ## Motivation
 
@@ -16,7 +17,7 @@ This part of the [The Odin Project](https://www.theodinproject.com/) foundations
 - [x] Eraser feature;
 - [x] Variable gray scale painting feature;
 - [x] Rainbow painting feature;
-- [ ] Create a new, and more modern, UI.
+- [x] Create a new, and more modern, UI.
 
 ## Bugs, Advices and Lessons Learned
 
