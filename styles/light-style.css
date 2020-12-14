@@ -81,7 +81,7 @@ span {
 
 .btn-wrapper:hover,
 .btn-wrapper:focus {
-  border-bottom: 1px solid var(--orange);
+  border-bottom: 2px solid var(--orange);
 }
 
 .color-options-btn:hover,
