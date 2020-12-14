@@ -107,7 +107,7 @@ function getDarkerColor (event) {
     let cellToDarken = event.target;
     let currentCellColor = cellToDarken.style["background-color"];
 
-    rgbString = currentCellColor ? currentCellColor.slice(4,-1) : "0,0,0";
+    rgbString = currentCellColor ? currentCellColor.slice(4,-1) : "255,255,255";
     rgbArray = rgbString.split(",");
 
     
